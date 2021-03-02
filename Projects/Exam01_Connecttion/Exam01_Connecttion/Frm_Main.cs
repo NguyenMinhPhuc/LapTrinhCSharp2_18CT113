@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace Exam01_Connecttion
 {
-    public partial class Form1 : Form
+    public partial class Frm_Main : Form
     {
-        public Form1()
+        public Frm_Main()
         {
             InitializeComponent();
         }
@@ -23,9 +23,18 @@ namespace Exam01_Connecttion
         {
             data = new Database(Application.StartupPath + @"\Connect.ini");
             if (data.KiemTraKetNoi(ref err))
+            {
                 MessageBox.Show("ket noi thanh cong");
+                lblConnectionString.Text = data.ConnectionString;
+            }
             else
-                MessageBox.Show(string.Format("Ket noi khong thanh cong \n {0}", err));
+            {
+                Frm_KetNoi frmKetNoi = new Frm_KetNoi();
+                frmKetNoi.ShowDialog();
+                data = new Database(Application.StartupPath + @"\Connect.ini");
+                lblConnectionString.Text = data.ConnectionString;
+            }
+                
         }
     }
 }

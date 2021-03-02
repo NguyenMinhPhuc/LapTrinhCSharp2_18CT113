@@ -11,6 +11,12 @@ namespace DataLayer
     {
         private SqlConnection cnn;
         private string connectionString = string.Empty; //"Data Source=172.16.61.11;Initial Catalog=QuanLyVay;User ID=lop18ct113;Password=123456789";
+
+        public string ConnectionString
+        {
+            get { return connectionString; }
+            set { connectionString = value; }
+        }
         ReadConnectionString readconnect;
         public Database(string path)
         {
@@ -18,6 +24,7 @@ namespace DataLayer
 
             cnn = new SqlConnection();
             cnn.ConnectionString = readconnect.DocChuoiKetNoiTuFile(path);
+            connectionString = cnn.ConnectionString;
            
         }
         public bool KiemTraKetNoi(ref string err)

@@ -9,8 +9,38 @@ namespace DataLayer
 {
    public class ReadConnectionString
     {
-       string serverName, databaseName, uid=string.Empty, pwd=string.Empty;
-       bool winNT = false;
+        string serverName, databaseName, uid = string.Empty, pwd = string.Empty;
+
+        public string Pwd
+        {
+            get { return pwd; }
+            set { pwd = value; }
+        }
+
+        public string Uid
+        {
+            get { return uid; }
+            set { uid = value; }
+        }
+
+        public string DatabaseName
+        {
+            get { return databaseName; }
+            set { databaseName = value; }
+        }
+
+        public string ServerName
+        {
+            get { return serverName; }
+            set { serverName = value; }
+        }
+        bool winNT = false;
+
+        public bool WinNT
+        {
+            get { return winNT; }
+            set { winNT = value; }
+        }
        private string connectionString;
 
        public string ConnectionString
@@ -18,6 +48,11 @@ namespace DataLayer
            get { return connectionString; }
            set { connectionString = value; }
        }
+       /// <summary>
+       /// Phương thức đọc thông tin chuỗi kết nối từ file Connect.ini
+       /// </summary>
+       /// <param name="path">Đường dẫn file Connect.ini</param>
+       /// <returns>Chuỗi kết nối "ConnectionString"</returns>
        public string DocChuoiKetNoiTuFile(string path)
        {
            if (File.Exists(path))
@@ -29,23 +64,26 @@ namespace DataLayer
                        string line = string.Empty;
                        while((line=sw.ReadLine())!=null)
                        {
-                           switch (line.Substring(0,line.IndexOf("=")).Trim().ToLower())
+                           if (line.IndexOf("=") > 0)
                            {
-                               case "server":
-                                   serverName = line.Substring(line.IndexOf("=") + 1);
-                                   break;
-                               case "database":
-                                   databaseName = line.Substring(line.IndexOf("=") + 1);
-                                   break;
-                               case "uid":
-                                   uid = line.Substring(line.IndexOf("=") + 1);
-                                   break;
-                               case "pwd":
-                                   pwd = line.Substring(line.IndexOf("=") + 1);
-                                   break;
-                               case "winnt":
-                                   winNT = Convert.ToBoolean(line.Substring(line.IndexOf("=") + 1));
-                                   break;
+                               switch (line.Substring(0, line.IndexOf("=")).Trim().ToLower())
+                               {
+                                   case "server":
+                                       serverName = line.Substring(line.IndexOf("=") + 1);
+                                       break;
+                                   case "database":
+                                       databaseName = line.Substring(line.IndexOf("=") + 1);
+                                       break;
+                                   case "uid":
+                                       uid = line.Substring(line.IndexOf("=") + 1);
+                                       break;
+                                   case "pwd":
+                                       pwd = line.Substring(line.IndexOf("=") + 1);
+                                       break;
+                                   case "winnt":
+                                       winNT = Convert.ToBoolean(line.Substring(line.IndexOf("=") + 1));
+                                       break;
+                               }
                            }
                        }
                    }
@@ -75,7 +113,7 @@ namespace DataLayer
                    sw.WriteLine(string.Format("database={0}", databaseName));
                    sw.WriteLine(string.Format("uid={0}", uid));
                    sw.WriteLine(string.Format("pwd={0}", pwd));
-                   sw.Write(string.Format("winnt={0}", winNT.ToString()));
+                   sw.WriteLine(string.Format("winnt={0}", winNT.ToString()));
                }
            }
        }
