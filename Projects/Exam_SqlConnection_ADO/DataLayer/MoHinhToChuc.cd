@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataLayer.ConnectionStringManage.ReadConnectionStringFactory" BaseTypeListCollapsed="true">
+    <Position X="4.75" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAACAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\ReadConnectionStringFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataLayer.ConnectionStringManage.ReadConnectionStringByAppConfig" BaseTypeListCollapsed="true">
+    <Position X="1" Y="2" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\ReadConnectionStringByAppConfig.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataLayer.ConnectionStringManage.ReadConnectionStringByBinary" BaseTypeListCollapsed="true">
+    <Position X="1" Y="3.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\ReadConnectionStringByBinary.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataLayer.ConnectionStringManage.ReadConnectionStringByRegedit" BaseTypeListCollapsed="true">
+    <Position X="1" Y="6.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\ReadConnectionStringByRegedit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataLayer.ConnectionStringManage.ReadConnectionStringByText" BaseTypeListCollapsed="true">
+    <Position X="1" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\ReadConnectionStringByText.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="DataLayer.DatabaseManager.Database">
+    <Position X="8.5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACIAAAEAAAAAgAAAAAAACAAIAAAAAAAAAAA=</HashCode>
+      <FileName>DatabaseManager\Database.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cnn" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Data.SqlClient.SqlConnection">
+    <Position X="11.5" Y="1.5" Width="3.25" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="DataLayer.ConnectionStringManage.IReadConnectFactory">
+    <Position X="4.75" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\IReadConnectFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="DataLayer.ConnectionStringManage.IReadConnectString">
+    <Position X="1" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAgAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\IReadConnectString.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="DataLayer.ConnectionStringManage.FileConnectType">
+    <Position X="4.75" Y="4.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAAAAAQAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConnectionStringManage\FileConnectType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
