@@ -4,3 +4,6 @@
   - Giới thiệu về ADO.NET
   - Xây dựng lớp DataLayer
     + Lớp SqlConnection
+    + Xây dựng lớp database.cs (Khởi tạo đối tượng SqlConnection)
+    + Xây dựng lớp ReadConnectionString.cs
+  - Thực hành áp dụng tạo form kết nối.
