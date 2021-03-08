@@ -7,3 +7,5 @@
     + Xây dựng lớp database.cs (Khởi tạo đối tượng SqlConnection)
     + Xây dựng lớp ReadConnectionString.cs
   - Thực hành áp dụng tạo form kết nối.
+
+## Buổi 2: Thực hành form kết nối
