@@ -1,21 +1,20 @@
-﻿using DataLayer.ConnectionStringManage;
+﻿using DataLayer.ConnectionStringManager;
 using DataLayer.DatabaseManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjectTest
+namespace Project_20210308
 {
-    public partial class Form1 : Form
+    public partial class Frm_Main : Form
     {
-        public Form1()
+        public Frm_Main()
         {
             InitializeComponent();
         }
@@ -25,29 +24,22 @@ namespace ProjectTest
             Application.StartupPath+@"\Connect.ini",
             Application.StartupPath + @"\App.config",
             ""};
-        private void Form1_Load(object sender, EventArgs e)
+        private void Frm_Main_Load(object sender, EventArgs e)
         {
             data = new Database(arrayPath, FileConnectType.INI);
-            if(data.KiemTraKetNoi(ref err))
+            if (data.KiemTraKetNoi(ref err))
             {
                 MessageBox.Show("Thanh công");
+                lblConnectionString.Text = data.connectionStringBuilder.ToString();
             }
             else
             {
-                MessageBox.Show("Ko Thanh công");
+                Frm_KetNoi frmKetNoi = new Frm_KetNoi(data.fileType);
+                frmKetNoi.ShowDialog();
+                data = new Database(arrayPath, FileConnectType.INI);
+                lblConnectionString.Text = data.connectionStringBuilder.ToString();
             }
             this.Text = data.connectionStringBuilder.ToString();
-        }
-        //Ghi lại chuỗi kết nối
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SqlConnectionStringBuilder cn = new SqlConnectionStringBuilder();
-            cn.DataSource = @"MINHPHUC\SQLEXPRESS";
-            cn.InitialCatalog = "QuanLyVay";
-            cn.IntegratedSecurity = true;
-            cn.UserID = "lop18ct113";
-            cn.Password = "123456789";
-            data.WriteConnectTionString(arrayPath, cn);
         }
     }
 }
