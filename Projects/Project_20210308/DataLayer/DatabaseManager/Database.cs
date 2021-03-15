@@ -64,37 +64,44 @@ namespace DataLayer.DatabaseManager
             }
         }
 
-        #region Phần code cho buổi học 14-03-2021
-       //Khai báo đối tượng SqlCommand
-        SqlCommand sqlCommand;
-       //Khởi tạo đối tượng SqlCommand trong phương thức
-       //Xây dựng phương thức Lấy database trả về SqlReader
-        public SqlDataReader MyExcuteDataReader(ref string err,string commandText, CommandType commandType,params SqlParameter[] paramList )
-        {
-            SqlDataReader dataReader = null;
-            try
-            {
-                if (sqlConnection.State == ConnectionState.Open)
-                    sqlConnection.Close();
-                sqlConnection.Open();//Mở kết nối
-                sqlCommand = new SqlCommand();//Khởi tạo đối tượng command
-                sqlCommand.Connection = sqlConnection;//gán cho command một kết nối
-                sqlCommand.CommandText = commandText;//Gán cho command một thủ tục, hoặc sql query 
-                sqlCommand.CommandType = commandType;//gán cho Command một kiểu command
-                sqlCommand.CommandTimeout = 600;//Cho thời gian timeout 
-                if(paramList!=null)//Kiểm tra nếu có tham số thì add Parameter cho command
-                foreach (SqlParameter item in paramList)
-                {
-                    sqlCommand.Parameters.Add(item);
-                }
-                dataReader = sqlCommand.ExecuteReader();//Thực thi phương thức của command trả vể một đối tượng SqlDataReader.
-            }
-            catch (Exception ex)
-            {
-                err = ex.Message;
-            }
-            return dataReader;
-        }
+        #region Phần code cho buổi học 15-03-2021
+      //Khai báo đối tượng SqlCommand
+       private SqlCommand sqlCommand;
+
+        //Khai báo 1 phương thức để thực thi thủ tục (store Proceduce) trong Sql Và trả về kiểu SqlDataReader
+       public SqlDataReader MyExcuteReader(ref string err,string commandText,CommandType commandType,params SqlParameter[] param)
+       {
+           SqlDataReader dataReader = null;
+
+           try
+           {
+               //mở kết nối
+               if (sqlConnection.State == ConnectionState.Open)
+                   sqlConnection.Close();
+               sqlConnection.Open();
+               //Khởi tạo đối tượng SqlCommand
+               sqlCommand = new SqlCommand();
+               sqlCommand.Connection = sqlConnection;
+               sqlCommand.CommandText = commandText;
+               sqlCommand.CommandType = commandType;
+               sqlCommand.CommandTimeout = 3000;
+               if (param != null)
+               {
+                   foreach (SqlParameter item in param)
+                   {
+                       sqlCommand.Parameters.Add(item);
+                   }
+               }
+               dataReader = sqlCommand.ExecuteReader();
+           }
+           catch (Exception ex)
+           {
+               err = ex.Message;
+           }
+           
+           return dataReader;
+       }
+
         #endregion
     }
 }
