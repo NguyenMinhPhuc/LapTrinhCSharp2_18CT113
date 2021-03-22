@@ -1,5 +1,6 @@
 ﻿using DataLayer.ConnectionStringManager;
 using DataLayer.DatabaseManager;
+using Project_20210308.DanhMuc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,16 +42,11 @@ namespace Project_20210308
             }
             this.Text = data.connectionStringBuilder.ToString();
         }
-        
-        private void btnLayNhanVien_Click(object sender, EventArgs e)
+      
+        private void mnuNhanVien_Click(object sender, EventArgs e)
         {
-            SqlDataReader dataReader = data.MyExcuteReader(ref err,"Select * from NhanVien", CommandType.Text, null);
-            string line=string.Empty;
-            while(dataReader.Read())
-            {
-                line += string.Format("{0}--{1}\n", dataReader["MaNhanVien"].ToString(), dataReader["TenNhanVien"].ToString());
-            }
-            MessageBox.Show(line, "Danh sách Nhân viên", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Frm_NhanVien_Main frmNhanVien = new Frm_NhanVien_Main();
+            frmNhanVien.ShowDialog();
         }
     }
 }

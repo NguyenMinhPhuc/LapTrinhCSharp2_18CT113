@@ -47,7 +47,21 @@
   <ItemGroup>
     <Compile Include="BussinessLayer\BLL_Basic.cs" />
     <Compile Include="BussinessLayer\BLL_DangNhap.cs" />
+    <Compile Include="BussinessLayer\BLL_NhanVien.cs" />
     <Compile Include="Cls_Main.cs" />
+    <Compile Include="DanhMuc\Frm_NhanVien_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\Frm_NhanVien_Main.Designer.cs">
+      <DependentUpon>Frm_NhanVien_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DanhMuc\Frm_NhanVien_Modifies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DanhMuc\Frm_NhanVien_Modifies.Designer.cs">
+      <DependentUpon>Frm_NhanVien_Modifies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAO\NhanVien.cs" />
     <Compile Include="Frm_KetNoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +82,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DanhMuc\Frm_NhanVien_Main.resx">
+      <DependentUpon>Frm_NhanVien_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DanhMuc\Frm_NhanVien_Modifies.resx">
+      <DependentUpon>Frm_NhanVien_Modifies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frm_KetNoi.resx">
       <DependentUpon>Frm_KetNoi.cs</DependentUpon>
     </EmbeddedResource>
