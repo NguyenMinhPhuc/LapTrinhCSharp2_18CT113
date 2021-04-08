@@ -1,22 +1,27 @@
-﻿using DataLayer.ConnectionStringManager;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//Khai báo thêm namespace
+using System.Data;
+using System.Data.SqlClient;
+using DataLayer.ConnectionStringManager;
 
 namespace DataLayer.DatabaseManager
 {
    public class Database:IDisposable
     {
-        SqlConnection sqlConnection;//Khai báo đối tượng của ADO.NET
+       //Khai báo đối tượng của ADO.NET
+        SqlConnection sqlConnection;
+        //Khai báo đối tượng SqlCommand
+        private SqlCommand sqlCommand;
         ReadConnectionStringFactory readConnect;//Đối tượng đọc chuỗi kết nối từ file.
        //Khai báo đối tượng Lưu chuỗi kết nối.
         public SqlConnectionStringBuilder connectionStringBuilder;
        //Khai báo kiểu file lưu trữ chuỗi kết nối. 
        public FileConnectType fileType;
+
         public void Dispose()
         {
             if (sqlConnection != null)
@@ -64,8 +69,7 @@ namespace DataLayer.DatabaseManager
         }
 
         #region Phần code cho buổi học 15-03-2021
-      //Khai báo đối tượng SqlCommand
-       private SqlCommand sqlCommand;
+     
 
         //Khai báo 1 phương thức để thực thi thủ tục (store Proceduce) trong Sql Và trả về kiểu SqlDataReader
        public SqlDataReader MyExcuteReader(ref string err,string commandText,CommandType commandType,params SqlParameter[] param)
@@ -152,6 +156,27 @@ namespace DataLayer.DatabaseManager
            }
            finally { sqlConnection.Close(); }
 
+           return result;
+       }
+
+       public object MyExecuteScalar(ref string err, string commandText, CommandType commandType, params SqlParameter[] param)
+       {
+           object result = null;
+           try{
+               if (sqlConnection.State == ConnectionState.Open)     //mở kết nối
+                   sqlConnection.Close();
+               sqlConnection.Open();
+               //Khởi tạo đối tượng SqlCommand
+               sqlCommand = new SqlCommand() { Connection = sqlConnection, CommandText = commandText, CommandType = commandType, CommandTimeout = 3000 };
+               if (param != null){
+                   foreach (SqlParameter item in param){
+                       sqlCommand.Parameters.Add(item);
+                   }
+               }
+               result = sqlCommand.ExecuteScalar();
+           }
+           catch (Exception ex){err = ex.Message;}
+           finally { sqlConnection.Close(); }
            return result;
        }
         #endregion

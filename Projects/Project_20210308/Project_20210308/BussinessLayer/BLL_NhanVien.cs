@@ -48,5 +48,9 @@ namespace Project_20210308.BussinessLayer
         {
             return data.MyGetDataTable(ref err, ref rows, "PSP_TaiKhoan_LayLoaiThaiKhoancbo", CommandType.StoredProcedure, null);
         }
+        public object GetMaxNhanVienID(ref string err)
+        {
+            return data.MyExecuteScalar(ref err, "PSP_NhanVien_SelectMaxID", CommandType.StoredProcedure, null);
+        }
     }
 }

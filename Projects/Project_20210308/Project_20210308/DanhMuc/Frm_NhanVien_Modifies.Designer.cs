@@ -63,6 +63,7 @@
             // 
             // txtMaNhanVien
             // 
+            this.txtMaNhanVien.Enabled = false;
             this.txtMaNhanVien.Location = new System.Drawing.Point(165, 43);
             this.txtMaNhanVien.Name = "txtMaNhanVien";
             this.txtMaNhanVien.Size = new System.Drawing.Size(309, 29);
@@ -103,6 +104,7 @@
             // rdoGioiTinhNam
             // 
             this.rdoGioiTinhNam.AutoSize = true;
+            this.rdoGioiTinhNam.Checked = true;
             this.rdoGioiTinhNam.Location = new System.Drawing.Point(165, 117);
             this.rdoGioiTinhNam.Name = "rdoGioiTinhNam";
             this.rdoGioiTinhNam.Size = new System.Drawing.Size(68, 28);
@@ -118,7 +120,6 @@
             this.rdoGioiTinhNu.Name = "rdoGioiTinhNu";
             this.rdoGioiTinhNu.Size = new System.Drawing.Size(53, 28);
             this.rdoGioiTinhNu.TabIndex = 6;
-            this.rdoGioiTinhNu.TabStop = true;
             this.rdoGioiTinhNu.Text = "Nữ";
             this.rdoGioiTinhNu.UseVisualStyleBackColor = true;
             // 
@@ -217,6 +218,7 @@
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(75, 22);
             this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // btnThoat
             // 
@@ -251,7 +253,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Frm_NhanVien_Modifies";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cập nhật nhân viên ";

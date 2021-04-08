@@ -45,8 +45,21 @@ namespace Project_20210308
       
         private void mnuNhanVien_Click(object sender, EventArgs e)
         {
+          
+        }
+
+        private void mnuEmployee_Click(object sender, EventArgs e)
+        {
             Frm_NhanVien_Main frmNhanVien = new Frm_NhanVien_Main();
+            
             frmNhanVien.ShowDialog();
         }
+
+        private void mnuThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+     
     }
 }

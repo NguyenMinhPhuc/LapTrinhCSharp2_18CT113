@@ -26,6 +26,8 @@ namespace Project_20210308
         {
             //Khoi tạo BLL_DangNhap
             bd = new BLL_DangNhap(Cls_Main.arrayPath, Cls_Main.fileType);
+            txtTenDangNhap.Text = "admin";
+            txtMatKhau.Text = "123456";
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -61,6 +63,11 @@ namespace Project_20210308
                 }
             }
             return result;
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
