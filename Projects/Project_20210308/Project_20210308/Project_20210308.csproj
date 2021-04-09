@@ -48,6 +48,7 @@
     <Compile Include="BussinessLayer\BLL_Basic.cs" />
     <Compile Include="BussinessLayer\BLL_DangNhap.cs" />
     <Compile Include="BussinessLayer\BLL_NhanVien.cs" />
+    <Compile Include="BussinessLayer\BLL_NhapSanPham.cs" />
     <Compile Include="Cls_Main.cs" />
     <Compile Include="DanhMuc\Frm_NhanVien_Main.cs">
       <SubType>Form</SubType>
@@ -82,6 +83,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TacVu\Frm_NhapSanPham_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_NhapSanPham_Main.Designer.cs">
+      <DependentUpon>Frm_NhapSanPham_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TacVu\Frm_NhapSanPham_Modifies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_NhapSanPham_Modifies.Designer.cs">
+      <DependentUpon>Frm_NhapSanPham_Modifies.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DanhMuc\Frm_NhanVien_Main.resx">
       <DependentUpon>Frm_NhanVien_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +119,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TacVu\Frm_NhapSanPham_Main.resx">
+      <DependentUpon>Frm_NhapSanPham_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_NhapSanPham_Modifies.resx">
+      <DependentUpon>Frm_NhapSanPham_Modifies.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

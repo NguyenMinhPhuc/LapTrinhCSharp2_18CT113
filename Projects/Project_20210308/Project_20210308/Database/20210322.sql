@@ -1,4 +1,4 @@
-﻿alter PROC PSP_NhanVien_Select
+﻿CREATE PROC PSP_NhanVien_Select
 AS
     SELECT ROW_NUMBER() OVER ( ORDER BY ( SELECT   1
                                          ) ) AS STT,  MaNhanVien ,

@@ -1,6 +1,7 @@
 ﻿using DataLayer.ConnectionStringManager;
 using DataLayer.DatabaseManager;
 using Project_20210308.DanhMuc;
+using Project_20210308.TacVu;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,6 +59,12 @@ namespace Project_20210308
         private void mnuThoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void mnuNhapSanPham_Click(object sender, EventArgs e)
+        {
+            Frm_NhapSanPham_Main frmNhapSanPham = new Frm_NhapSanPham_Main();
+            frmNhapSanPham.ShowDialog();
         }
 
      

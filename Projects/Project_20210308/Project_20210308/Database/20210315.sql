@@ -1,6 +1,5 @@
-﻿CREATE DATABASE QuanLyBanHang_WF
-GO 
-USE [QuanLyBanHang_WF]
+﻿ 
+USE Data_QuanLyBanHangHocTap
 GO
 /****** Object:  Table [dbo].[ChucNang]    Script Date: 15/03/2021 13:40:03 ******/
 SET ANSI_NULLS ON
