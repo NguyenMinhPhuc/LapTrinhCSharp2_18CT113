@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataLayer.ConnectionStringManager;
 using System.Data;
 using System.Data.SqlClient;
+using Project_20210308.DAO;
 
 namespace Project_20210308.BussinessLayer
 {
@@ -27,6 +28,23 @@ namespace Project_20210308.BussinessLayer
             return data.MyExecuteScalar(ref err, "PSP_PhieuNhap_LayMaxMaPhieuNhap", CommandType.StoredProcedure,
                 new SqlParameter("@Year", date.Year),
                 new SqlParameter("@Month", date.Month));
+        }
+        public bool InsertPhieuNhap(ref string err, ref int rows, PhieuNhap phieuNhap)
+        {
+            return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhieuNhap_Insert", CommandType.StoredProcedure,
+                new SqlParameter("@MaPhieuNhap", phieuNhap.MaPhieuNhap),
+                 new SqlParameter("@MaNhanVien", phieuNhap.MaNhanVien));
+        }
+
+        public bool DeletePhieuNhap(ref string err, ref int rows, string maPhieuNhap)
+        {
+            return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhieuNhap_Delete", CommandType.StoredProcedure,
+                new SqlParameter("@MaPhieuNhap", maPhieuNhap));
+        }
+
+        public DataTable KiemTraSanPhamTonTai(ref string err,ref int rows,string tenSanPham)
+        {
+            return data.MyGetDataTable(ref err, ref rows, "PSP_SanPham_KiemTraSanPhamTheoTen", CommandType.StoredProcedure, new SqlParameter("@TenSanPham", tenSanPham));
         }
     }
 }

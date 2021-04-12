@@ -1,5 +1,5 @@
 ﻿ 
-USE Data_QuanLyBanHangHocTap
+USE Data_BanHang_HocTap
 GO
 /****** Object:  Table [dbo].[ChucNang]    Script Date: 15/03/2021 13:40:03 ******/
 SET ANSI_NULLS ON

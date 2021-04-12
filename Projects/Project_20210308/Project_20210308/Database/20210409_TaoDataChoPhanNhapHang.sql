@@ -1,4 +1,6 @@
-﻿--Tao bang Don vi tinh
+﻿USE Data_BanHang_HocTap
+GO
+--Tao bang Don vi tinh
 CREATE TABLE DonViTinh
     (
       MaDVT INT IDENTITY(1, 1)

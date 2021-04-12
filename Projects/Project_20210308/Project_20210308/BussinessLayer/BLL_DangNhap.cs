@@ -24,5 +24,10 @@ namespace Project_20210308.BussinessLayer
                new SqlParameter("@TenDangNhap", tenDangNhap),
                new SqlParameter("@MatKhau", matKhau));
        }
+
+       public bool KiemTraPhieuNhap(ref string err, ref int rows)
+       {
+           return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhieuNhap_KiemTraStatusPhieuNhap", CommandType.StoredProcedure, null);
+       }
     }
 }

@@ -19,5 +19,6 @@ namespace Project_20210308
 
     public static string tenNhanVien = string.Empty;
     public static string maTaiKhoan = string.Empty;
+    public static string maNhanVien = string.Empty;
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DataLayer.ConnectionStringManager;
 using DataLayer.DatabaseManager;
+using Project_20210308.BussinessLayer;
 using Project_20210308.DanhMuc;
 using Project_20210308.TacVu;
 using System;
@@ -23,6 +24,8 @@ namespace Project_20210308
         }
         Database data;
         string err = string.Empty;
+        int rows = 0;
+        BLL_DangNhap bd;
        
         private void Frm_Main_Load(object sender, EventArgs e)
         {
@@ -33,6 +36,7 @@ namespace Project_20210308
                 frm_Login.ShowDialog();
                 lblTenNhanVien.Text = Cls_Main.tenNhanVien;
                 lblConnectionString.Text = data.connectionStringBuilder.ToString();
+                
             }
             else
             {
@@ -40,8 +44,11 @@ namespace Project_20210308
                 frmKetNoi.ShowDialog();
                 data = new Database(Cls_Main.arrayPath, Cls_Main.fileType);
                 lblConnectionString.Text = data.connectionStringBuilder.ToString();
+                
             }
             this.Text = data.connectionStringBuilder.ToString();
+            bd = new BLL_DangNhap(Cls_Main.arrayPath, Cls_Main.fileType);
+            bd.KiemTraPhieuNhap(ref err, ref rows);
         }
       
         private void mnuNhanVien_Click(object sender, EventArgs e)

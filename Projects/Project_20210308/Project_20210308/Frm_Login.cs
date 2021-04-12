@@ -54,6 +54,7 @@ namespace Project_20210308
                         //Lấy thêm thông tin đăng nhập nếu muốn.
                         Cls_Main.tenNhanVien = dataReader["TenNhanVien"].ToString();
                         Cls_Main.maTaiKhoan = dataReader["MaTaiKhoan"].ToString();
+                        Cls_Main.maNhanVien = dataReader["MaNhanVien"].ToString();
                         result = true;
                     }
                     else

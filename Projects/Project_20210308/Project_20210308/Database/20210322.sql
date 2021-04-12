@@ -1,4 +1,7 @@
-﻿CREATE PROC PSP_NhanVien_Select
+﻿
+USE Data_BanHang_HocTap
+GO 
+CREATE PROC PSP_NhanVien_Select
 AS
     SELECT ROW_NUMBER() OVER ( ORDER BY ( SELECT   1
                                          ) ) AS STT,  MaNhanVien ,
