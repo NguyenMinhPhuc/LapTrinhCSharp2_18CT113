@@ -62,8 +62,10 @@
     <Compile Include="DanhMuc\Frm_NhanVien_Modifies.Designer.cs">
       <DependentUpon>Frm_NhanVien_Modifies.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ChiTietPhieuNhap.cs" />
     <Compile Include="DAO\NhanVien.cs" />
     <Compile Include="DAO\PhieuNhap.cs" />
+    <Compile Include="DAO\SanPham.cs" />
     <Compile Include="Frm_KetNoi.cs">
       <SubType>Form</SubType>
     </Compile>

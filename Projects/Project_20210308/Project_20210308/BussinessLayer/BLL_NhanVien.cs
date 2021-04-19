@@ -50,7 +50,7 @@ namespace Project_20210308.BussinessLayer
         }
         public object GetMaxNhanVienID(ref string err)
         {
-            return data.MyExecuteScalar(ref err, "PSP_NhanVien_SelectMaxID", CommandType.StoredProcedure, null);
+            return data.MyExecuteScalar(ref err, "PSP_NhanVien_LayMaxMaNV", CommandType.StoredProcedure, null);
         }
     }
 }

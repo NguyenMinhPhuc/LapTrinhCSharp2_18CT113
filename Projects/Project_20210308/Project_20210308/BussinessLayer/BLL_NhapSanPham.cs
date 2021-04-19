@@ -46,5 +46,35 @@ namespace Project_20210308.BussinessLayer
         {
             return data.MyGetDataTable(ref err, ref rows, "PSP_SanPham_KiemTraSanPhamTheoTen", CommandType.StoredProcedure, new SqlParameter("@TenSanPham", tenSanPham));
         }
+
+        public bool InsertChiTietPhieuNhap(ref string err,ref int rows,SanPham sanPham,ChiTietPhieuNhap chiTietPhieuNhap)
+        {
+            SqlParameter[] param = new SqlParameter[]
+            {
+                new SqlParameter("@MaPhieuNhap", chiTietPhieuNhap.MaPhieuNhap),
+                new SqlParameter("@MaSP", chiTietPhieuNhap.MaSP),
+                new SqlParameter("@SoLuongNhap", chiTietPhieuNhap.SoLuongNhap),
+                new SqlParameter("@DonGiaNhap", chiTietPhieuNhap.DonGiaNhap),
+                new SqlParameter("@MaDVT", sanPham.MaDVT),
+                new SqlParameter("@TenSP", sanPham.TenSP)
+            };
+
+            return data.MyExecuteNonQuery(ref err, ref rows, "PSP_ChiTietNhap_Insert", CommandType.StoredProcedure,
+                param);
+        }
+
+        public DataTable LayCboDonViTinh(ref string err,ref int rows)
+        {
+            return data.MyGetDataTable(ref err, ref rows, "PSP_DonViTinh_SelectCbo", CommandType.StoredProcedure, null);
+        }
+
+        public object LayMaSanPhamMax(ref string err)
+        {
+            return data.MyExecuteScalar(ref err, "PSP_SanPham_LayMaxMaSP", CommandType.StoredProcedure, null);
+        }
+        public bool CapNhatTrangThaiPhieuNhap(ref string err, ref int rows,string maPhieuNhap)
+        {
+            return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhieuNhap_CapNhatTrangThai", CommandType.StoredProcedure, new SqlParameter("@MaPhieuNhap", maPhieuNhap));
+        }
     }
 }

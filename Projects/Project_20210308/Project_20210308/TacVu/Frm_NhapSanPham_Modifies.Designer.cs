@@ -34,6 +34,8 @@
             this.lblMaPhieuNhap = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblerr = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnXacNhan = new System.Windows.Forms.ToolStripButton();
+            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaSanPham = new System.Windows.Forms.TextBox();
             this.txtTenSanPham = new System.Windows.Forms.TextBox();
@@ -46,8 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
-            this.btnXacNhan = new System.Windows.Forms.ToolStripButton();
-            this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,24 @@
             this.toolStrip1.Size = new System.Drawing.Size(486, 27);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnXacNhan
+            // 
+            this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
+            this.btnXacNhan.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnXacNhan.Name = "btnXacNhan";
+            this.btnXacNhan.Size = new System.Drawing.Size(126, 24);
+            this.btnXacNhan.Text = "Xác nhận nhập";
+            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
+            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(67, 24);
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // label1
             // 
@@ -206,23 +224,6 @@
             this.btnHuy.Text = "Hủy";
             this.btnHuy.UseVisualStyleBackColor = true;
             this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
-            // 
-            // btnXacNhan
-            // 
-            this.btnXacNhan.Image = ((System.Drawing.Image)(resources.GetObject("btnXacNhan.Image")));
-            this.btnXacNhan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnXacNhan.Name = "btnXacNhan";
-            this.btnXacNhan.Size = new System.Drawing.Size(126, 24);
-            this.btnXacNhan.Text = "Xác nhận nhập";
-            this.btnXacNhan.Click += new System.EventHandler(this.btnXacNhan_Click);
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Image = ((System.Drawing.Image)(resources.GetObject("btnThoat.Image")));
-            this.btnThoat.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(67, 24);
-            this.btnThoat.Text = "Thoát";
             // 
             // Frm_NhapSanPham_Modifies
             // 

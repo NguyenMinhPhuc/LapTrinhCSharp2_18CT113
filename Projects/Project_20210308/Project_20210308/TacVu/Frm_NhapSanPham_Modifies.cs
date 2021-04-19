@@ -37,7 +37,7 @@ namespace Project_20210308.TacVu
         private void LoadCboDonViTinh()
         {
             DataTable dtDonViTinh = new DataTable();
-            dtDonViTinh = null;//Lấy data trong bảng DonViTinh đưa vào comboBox
+            dtDonViTinh = bd.LayCboDonViTinh(ref err, ref rows);
             cboDonViTinh.DataSource = dtDonViTinh;
             cboDonViTinh.ValueMember = "MaDVT";
             cboDonViTinh.DisplayMember = "TenDVT";
@@ -76,7 +76,8 @@ namespace Project_20210308.TacVu
         {
             statusPhieuNhap = true;
             //Cập nhật thuộc tính StatusPhieuNhap=1
-
+            if (bd.CapNhatTrangThaiPhieuNhap(ref err, ref rows, maPhieuNhap))
+                maPhieuNhap = string.Empty;
             //Thực hiện In Phiếu nhập
 
         }
@@ -130,7 +131,7 @@ namespace Project_20210308.TacVu
 
         private string TaoMaSanPham()
         {
-            object obj = 1;
+            object obj = bd.LayMaSanPhamMax(ref err);
             return string.Format("SP{0:0000000}", Convert.ToInt32(obj));
         }
 
@@ -166,12 +167,79 @@ namespace Project_20210308.TacVu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            //Thực hiện lệnh thêm data vào trong bảng ChiTietPhieuNhap.
+            if (!string.IsNullOrEmpty(txtMaSanPham.Text))
+            {
+                if(!string.IsNullOrEmpty(txtTenSanPham.Text))
+                {
+                    if(!string.IsNullOrEmpty(txtSoLuong.Text)&&Convert.ToInt32(txtSoLuong.Text)>0)
+                    {
+                        if (!string.IsNullOrEmpty(txtDonGia.Text) && Convert.ToInt32(txtDonGia.Text) > 0)
+                        {
+                            if(cboDonViTinh.SelectedIndex>=0)
+                            {
+                                //Lấy value của control
+                                SetDataPhieuNhap();
+                                //Insert data vào sql
+                               if( bd.InsertChiTietPhieuNhap(ref err,ref rows,sanPham,chiTietPhieuNhap))
+                               {
+                                   if(MessageBox.Show(string.Format("Có tiếp tục nhập cho phiếu nhập {0}\n Ok để tiếp tục Cancel để kết thúc",maPhieuNhap),"Thông báo",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning)==DialogResult.OK)
+                                   {
+                                       ResetControl();//tiếp tục nhập sp mới
+                                   }
+                                   else { 
+                                       this.Close();//không nhập tiếp 
+                                   }
+                               }
+                            }
+                            else { MessageBox.Show("Chưa chọn DVT", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                        }
+                        else { MessageBox.Show("Chưa nhập đơn giá", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                    }
+                    else { MessageBox.Show("Chưa nhập số lượng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+                }
+                else { MessageBox.Show("Chưa có tên sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+            }
+            else { MessageBox.Show("Chưa có mã sản phẩm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+
+        }
+        SanPham sanPham=null;
+        ChiTietPhieuNhap chiTietPhieuNhap=null;
+        private void SetDataPhieuNhap()
+        {
+            sanPham = new SanPham() {
+                MaSP=txtMaSanPham.Text,
+                TenSP=txtTenSanPham.Text,
+                MaDVT=Convert.ToInt32(cboDonViTinh.SelectedValue.ToString()),
+                SoTon=0
+            };
+            chiTietPhieuNhap = new ChiTietPhieuNhap() { 
+                MaPhieuNhap=maPhieuNhap,
+                MaSP = txtMaSanPham.Text,
+                SoLuongNhap=Convert.ToInt32(txtSoLuong.Text),
+                DonGiaNhap=Convert.ToDouble(txtDonGia.Text),
+                SoLuongNhapTon = Convert.ToInt32(txtSoLuong.Text)
+            };
         }
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
             //Thực hiện lệnh hủy bỏ (xóa control) trở về trạng thái nhập ban đầu
+            ResetControl();
+        }
+
+        private void ResetControl()
+        {
+            txtMaSanPham.ResetText();
+            txtTenSanPham.ResetText();
+            txtSoLuong.Text = "0";
+            txtDonGia.Text = "0";
+            LoadCboDonViTinh();
+            txtTenSanPham.Focus();
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
