@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -136,11 +137,31 @@ namespace Project_20210308.TacVu
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Kiểm tra chỉ cho phép nhập số
+            string decimalString = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            char decimalChar = Convert.ToChar(decimalString);
+
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)) { }
+            else if (e.KeyChar == decimalChar && txtSoLuong.Text.IndexOf(decimalString) == -1)
+            { }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
         {
             //Kiểm tra chỉ cho phép nhập số
+            string decimalString = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencyDecimalSeparator;
+            char decimalChar = Convert.ToChar(decimalString);
+
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar)) { }
+            else if (e.KeyChar == decimalChar && txtDonGia.Text.IndexOf(decimalString) == -1)
+            { }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void btnThem_Click(object sender, EventArgs e)

@@ -96,6 +96,12 @@
     <Compile Include="TacVu\Frm_NhapSanPham_Modifies.Designer.cs">
       <DependentUpon>Frm_NhapSanPham_Modifies.cs</DependentUpon>
     </Compile>
+    <Compile Include="TacVu\Frm_NhapSanPham_SuaPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_NhapSanPham_SuaPhieuNhap.Designer.cs">
+      <DependentUpon>Frm_NhapSanPham_SuaPhieuNhap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DanhMuc\Frm_NhanVien_Main.resx">
       <DependentUpon>Frm_NhanVien_Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,12 +125,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TacVu\Frm_NhapSanPham_Main.resx">
       <DependentUpon>Frm_NhapSanPham_Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TacVu\Frm_NhapSanPham_Modifies.resx">
       <DependentUpon>Frm_NhapSanPham_Modifies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_NhapSanPham_SuaPhieuNhap.resx">
+      <DependentUpon>Frm_NhapSanPham_SuaPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -144,6 +154,27 @@
       <Project>{2db5097d-c2ec-41d5-be9e-89a6b6922eb8}</Project>
       <Name>DataLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\sync_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\add_graph_report_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\download_from_ftp_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\delete_pie_chart_report_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\export_csv_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\close_sign_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\search_property_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

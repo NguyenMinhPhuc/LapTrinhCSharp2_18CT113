@@ -76,5 +76,17 @@ namespace Project_20210308.TacVu
             frmNhapSanPham.ShowDialog();
             HienThiDanhSach();
         }
+        string maPhieuNhap = string.Empty;
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(maPhieuNhap))
+            {
+                Frm_NhapSanPham_SuaPhieuNhap frmSuaPhieuNhap = new Frm_NhapSanPham_SuaPhieuNhap();
+                frmSuaPhieuNhap.maPhieuNhap = maPhieuNhap;
+                frmSuaPhieuNhap.ShowDialog();
+                HienThiDanhSach();
+                maPhieuNhap = string.Empty;
+            }
+        }
     }
 }
