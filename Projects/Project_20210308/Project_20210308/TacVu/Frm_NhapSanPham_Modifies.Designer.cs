@@ -47,7 +47,7 @@
             this.cboDonViTinh = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnThem = new System.Windows.Forms.Button();
-            this.btnHuy = new System.Windows.Forms.Button();
+            this.btnResetControl = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -206,7 +206,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(180, 414);
+            this.btnThem.Location = new System.Drawing.Point(198, 405);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(145, 40);
             this.btnThem.TabIndex = 12;
@@ -214,25 +214,23 @@
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // btnHuy
+            // btnResetControl
             // 
-            this.btnHuy.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnHuy.Location = new System.Drawing.Point(331, 414);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(145, 40);
-            this.btnHuy.TabIndex = 13;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
+            this.btnResetControl.Location = new System.Drawing.Point(360, 404);
+            this.btnResetControl.Name = "btnResetControl";
+            this.btnResetControl.Size = new System.Drawing.Size(116, 43);
+            this.btnResetControl.TabIndex = 13;
+            this.btnResetControl.Text = "Hủy";
+            this.btnResetControl.UseVisualStyleBackColor = true;
+            this.btnResetControl.Click += new System.EventHandler(this.btnResetControl_Click);
             // 
             // Frm_NhapSanPham_Modifies
             // 
             this.AcceptButton = this.btnThem;
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnHuy;
             this.ClientSize = new System.Drawing.Size(486, 506);
-            this.Controls.Add(this.btnHuy);
+            this.Controls.Add(this.btnResetControl);
             this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cboDonViTinh);
@@ -282,7 +280,7 @@
         private System.Windows.Forms.ComboBox cboDonViTinh;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.ToolStripButton btnThoat;
+        private System.Windows.Forms.Button btnResetControl;
     }
 }

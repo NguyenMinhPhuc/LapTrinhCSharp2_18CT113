@@ -74,22 +74,28 @@ namespace Project_20210308.TacVu
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            statusPhieuNhap = true;
+           
             //Cập nhật thuộc tính StatusPhieuNhap=1
             if (bd.CapNhatTrangThaiPhieuNhap(ref err, ref rows, maPhieuNhap))
+            { 
+                statusPhieuNhap = true;
                 maPhieuNhap = string.Empty;
-            //Thực hiện In Phiếu nhập
+                this.Close();
+            //Thực hiện In Phiếu nhập 
+
+            }
+                
 
         }
-
         private void Frm_NhapSanPham_Modifies_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(!statusPhieuNhap)
+
+            if (!statusPhieuNhap)
             {
                 if (MessageBox.Show(string.Format("Việc tắt của sổ nhập hàng khi trạng thái nhập chưa hoàn thành sẽ gây thiếu tính nhất quán trong dữ liệu\n Do đó, Phiếu nhập {0} sẽ bị xóa khỏi dữ liệu.\n Nếu không muốn xóa phiếu nhập và quay lại hoàn thành phiếu nhập này hãy chọn Cacel, Ngược lại chọn OK", maPhieuNhap), "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     //Xóa
-                    if(bd.DeletePhieuNhap(ref err, ref rows, maPhieuNhap))
+                    if (bd.DeletePhieuNhap(ref err, ref rows, maPhieuNhap))
                     {
                         e.Cancel = false;
                     }
@@ -98,8 +104,9 @@ namespace Project_20210308.TacVu
                         e.Cancel = true;
                     }
                 }
-                else {e.Cancel = true; }
-                    
+                else { e.Cancel = true; }
+
+
             }
         }
 
@@ -221,11 +228,7 @@ namespace Project_20210308.TacVu
             };
         }
 
-        private void btnHuy_Click(object sender, EventArgs e)
-        {
-            //Thực hiện lệnh hủy bỏ (xóa control) trở về trạng thái nhập ban đầu
-            ResetControl();
-        }
+        
 
         private void ResetControl()
         {
@@ -241,5 +244,11 @@ namespace Project_20210308.TacVu
         {
             this.Close();
         }
+
+        private void btnResetControl_Click(object sender, EventArgs e)
+        {
+            ResetControl();
+        }
+
     }
 }
