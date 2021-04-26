@@ -61,6 +61,7 @@
             this.colTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuongNhapTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboTenColumn = new System.Windows.Forms.ComboBox();
+            this.btnExportExcel = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNhap)).BeginInit();
@@ -80,7 +81,8 @@
             this.toolStripLabel1,
             this.txtSearch,
             this.toolStripLabel3,
-            this.btnSort});
+            this.btnSort,
+            this.btnExportExcel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1293, 25);
@@ -131,6 +133,7 @@
             this.btnXuatExcel.Name = "btnXuatExcel";
             this.btnXuatExcel.Size = new System.Drawing.Size(81, 22);
             this.btnXuatExcel.Text = "Xuất Excel";
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // btnThoat
             // 
@@ -349,6 +352,15 @@
             this.cboTenColumn.Size = new System.Drawing.Size(158, 26);
             this.cboTenColumn.TabIndex = 3;
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(54, 22);
+            this.btnExportExcel.Text = "Excel";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // Frm_NhapSanPham_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -407,5 +419,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuongNhapTon;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripButton btnSort;
+        private System.Windows.Forms.ToolStripButton btnExportExcel;
     }
 }
