@@ -21,7 +21,9 @@ namespace Project_20210308.TacVu
         public Frm_NhapSanPham_Main()
         {
             InitializeComponent();
+            tongQuyenTrenForm = Convert.ToInt32(Cls_Main.BangPhanQuyen[this.Name].ToString());
         }
+        int tongQuyenTrenForm = 0;
         private BLL_NhapSanPham bd;
         private string err = string.Empty;
         private int rows = 0;
@@ -91,21 +93,29 @@ namespace Project_20210308.TacVu
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            Frm_NhapSanPham_Modifies frmNhapSanPham = new Frm_NhapSanPham_Modifies();
-            frmNhapSanPham.ShowDialog();
-            HienThiDanhSach();
+            if (Cls_Main.KiemTraQuyen(tongQuyenTrenForm, (int)Commons.PermissionType.Add))
+            {
+                Frm_NhapSanPham_Modifies frmNhapSanPham = new Frm_NhapSanPham_Modifies();
+                frmNhapSanPham.ShowDialog();
+                HienThiDanhSach();
+            }
+            else { MessageBox.Show("khong co quyen"); }
         }
         string maPhieuNhap = string.Empty;
         private void btnSua_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(maPhieuNhap))
+            if (Cls_Main.KiemTraQuyen(tongQuyenTrenForm, (int)Commons.PermissionType.Update))
             {
-                Frm_NhapSanPham_SuaPhieuNhap frmSuaPhieuNhap = new Frm_NhapSanPham_SuaPhieuNhap();
-                frmSuaPhieuNhap.maPhieuNhap = maPhieuNhap;
-                frmSuaPhieuNhap.ShowDialog();
-                HienThiDanhSach();
-                maPhieuNhap = string.Empty;
+                if (!string.IsNullOrEmpty(maPhieuNhap))
+                {
+                    Frm_NhapSanPham_SuaPhieuNhap frmSuaPhieuNhap = new Frm_NhapSanPham_SuaPhieuNhap();
+                    frmSuaPhieuNhap.maPhieuNhap = maPhieuNhap;
+                    frmSuaPhieuNhap.ShowDialog();
+                    HienThiDanhSach();
+                    maPhieuNhap = string.Empty;
+                }
             }
+            else { MessageBox.Show("khong co quyen"); }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -308,6 +318,22 @@ namespace Project_20210308.TacVu
             }
             finally
             { GC.Collect(); }
+        }
+
+        private void btninlai_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(maPhieuNhap))
+            {
+                //gọi hàm xóa
+                Frm_InPhieuNhap frmInPhieuNhap = new Frm_InPhieuNhap(maPhieuNhap);
+                frmInPhieuNhap.ShowDialog();
+
+                maPhieuNhap = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn mã phiếu nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
     }

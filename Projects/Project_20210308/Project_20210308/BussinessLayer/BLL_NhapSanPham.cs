@@ -10,7 +10,7 @@ using Project_20210308.DAO;
 
 namespace Project_20210308.BussinessLayer
 {
-    public class BLL_NhapSanPham:BLL_Basic
+    public class BLL_NhapSanPham:BLL_Base
     {
         public BLL_NhapSanPham(string[] path, FileConnectType fileTyle)
             : base(path, fileTyle)
@@ -75,6 +75,10 @@ namespace Project_20210308.BussinessLayer
         public bool CapNhatTrangThaiPhieuNhap(ref string err, ref int rows,string maPhieuNhap)
         {
             return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhieuNhap_CapNhatTrangThai", CommandType.StoredProcedure, new SqlParameter("@MaPhieuNhap", maPhieuNhap));
+        }
+        public DataTable PhieuNhap_InPhieuNhap(ref string err, ref int rows,string maPhieuNhap)
+        {
+            return data.MyGetDataTable(ref err, ref rows, "PSP_PhieuNhap_InPhieuNhap", CommandType.StoredProcedure, new  SqlParameter("@MaPhieuNhap",maPhieuNhap));
         }
     }
 }

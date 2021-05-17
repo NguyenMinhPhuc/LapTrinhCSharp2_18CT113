@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Project_20210308.BussinessLayer
 {
-    public class BLL_Basic : IDisposable
+    public class BLL_Base : IDisposable
     {
-      
       public Database data;
       public void Dispose()
       {
@@ -20,7 +19,7 @@ namespace Project_20210308.BussinessLayer
               data = null;
           }
       }
-      public BLL_Basic(string[] path,FileConnectType fileTyle)
+      public BLL_Base(string[] path,FileConnectType fileTyle)
        {
            data = new Database(path, fileTyle);
        }

@@ -125,5 +125,12 @@ namespace Project_20210308.DanhMuc
                 MaTaiKhoan=cboLoaiTaiKhoan.SelectedValue.ToString()
             };
         }
+
+        private void btnThemLoaiTaiKhoan_Click(object sender, EventArgs e)
+        {
+            Frm_TaiKhoan_Main frmTaiKhoan = new Frm_TaiKhoan_Main();
+            frmTaiKhoan.ShowDialog();
+            LoadDataForCboTaiKhoan();
+        }
     }
 }

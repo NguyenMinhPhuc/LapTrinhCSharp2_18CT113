@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_NhapSanPham_Main));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnNapLai = new System.Windows.Forms.ToolStripButton();
             this.btnThem = new System.Windows.Forms.ToolStripButton();
@@ -44,6 +44,7 @@
             this.txtSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.btnSort = new System.Windows.Forms.ToolStripButton();
+            this.btnExportExcel = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.dgvChiTietNhap = new System.Windows.Forms.DataGridView();
@@ -61,7 +62,7 @@
             this.colTenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuongNhapTon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cboTenColumn = new System.Windows.Forms.ComboBox();
-            this.btnExportExcel = new System.Windows.Forms.ToolStripButton();
+            this.btninlai = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietNhap)).BeginInit();
@@ -82,7 +83,8 @@
             this.txtSearch,
             this.toolStripLabel3,
             this.btnSort,
-            this.btnExportExcel});
+            this.btnExportExcel,
+            this.btninlai});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1293, 25);
@@ -184,6 +186,15 @@
             this.btnSort.Text = "Tăng";
             this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(54, 22);
+            this.btnExportExcel.Text = "Excel";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -205,17 +216,17 @@
             // 
             this.dgvChiTietNhap.AllowUserToAddRows = false;
             this.dgvChiTietNhap.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.dgvChiTietNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.dgvChiTietNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvChiTietNhap.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvChiTietNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChiTietNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvChiTietNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvChiTietNhap.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSTT,
@@ -352,14 +363,14 @@
             this.cboTenColumn.Size = new System.Drawing.Size(158, 26);
             this.cboTenColumn.TabIndex = 3;
             // 
-            // btnExportExcel
+            // btninlai
             // 
-            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
-            this.btnExportExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(54, 22);
-            this.btnExportExcel.Text = "Excel";
-            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            this.btninlai.Image = ((System.Drawing.Image)(resources.GetObject("btninlai.Image")));
+            this.btninlai.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btninlai.Name = "btninlai";
+            this.btninlai.Size = new System.Drawing.Size(115, 22);
+            this.btninlai.Text = "In laị phiếu nhập";
+            this.btninlai.Click += new System.EventHandler(this.btninlai_Click);
             // 
             // Frm_NhapSanPham_Main
             // 
@@ -420,5 +431,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripButton btnSort;
         private System.Windows.Forms.ToolStripButton btnExportExcel;
+        private System.Windows.Forms.ToolStripButton btninlai;
     }
 }

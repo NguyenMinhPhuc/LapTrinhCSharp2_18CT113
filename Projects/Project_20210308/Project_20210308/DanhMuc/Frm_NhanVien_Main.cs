@@ -104,5 +104,10 @@ namespace Project_20210308.DanhMuc
                 MessageBox.Show("Chua chon nhan vien muon xoa");
             }
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 } 

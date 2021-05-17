@@ -79,10 +79,12 @@ namespace Project_20210308.TacVu
             if (bd.CapNhatTrangThaiPhieuNhap(ref err, ref rows, maPhieuNhap))
             { 
                 statusPhieuNhap = true;
-                maPhieuNhap = string.Empty;
-                this.Close();
+               
             //Thực hiện In Phiếu nhập 
-
+                Frm_InPhieuNhap frmInPhieuNhap = new Frm_InPhieuNhap(maPhieuNhap);
+                frmInPhieuNhap.ShowDialog();
+                maPhieuNhap = string.Empty; 
+                this.Close();
             }
                 
 

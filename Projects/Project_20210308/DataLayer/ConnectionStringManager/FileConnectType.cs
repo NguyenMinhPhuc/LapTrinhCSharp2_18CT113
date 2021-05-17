@@ -13,4 +13,6 @@ namespace DataLayer.ConnectionStringManager
        REGEDIT=2,
        BINARY=3
     }
+
+   
 }

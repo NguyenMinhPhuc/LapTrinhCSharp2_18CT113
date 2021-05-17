@@ -10,7 +10,7 @@ using System.Data.SqlClient;
 
 namespace Project_20210308.BussinessLayer
 {
-    public class BLL_NhanVien:BLL_Basic
+    public class BLL_NhanVien:BLL_Base
     {
         public BLL_NhanVien(string[] path, FileConnectType fileTyle)
             : base(path, fileTyle)
