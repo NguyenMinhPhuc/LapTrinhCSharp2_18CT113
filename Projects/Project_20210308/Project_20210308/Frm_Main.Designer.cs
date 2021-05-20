@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lblConnectionString = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblTenNhanVien = new System.Windows.Forms.ToolStripStatusLabel();
@@ -59,17 +58,9 @@
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 29);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 4, 0, 4);
-            this.menuStrip1.Size = new System.Drawing.Size(1411, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.White;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblConnectionString,
             this.lblTenNhanVien});
@@ -94,7 +85,8 @@
             // 
             // menuStrip2
             // 
-            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.menuStrip2.BackColor = System.Drawing.Color.White;
+            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.listToolStripMenuItem,
@@ -103,7 +95,7 @@
             this.trợGiúpToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(1411, 29);
+            this.menuStrip2.Size = new System.Drawing.Size(1411, 33);
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -289,11 +281,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1411, 606);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "Frm_Main";
             this.Text = "Quản lý bán hàng";
@@ -310,7 +300,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblConnectionString;
         private System.Windows.Forms.ToolStripStatusLabel lblTenNhanVien;

@@ -40,6 +40,7 @@
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
+            this.btnQuanLyNhanVien = new System.Windows.Forms.ToolStripButton();
             this.btnThoat = new System.Windows.Forms.ToolStripButton();
             this.dgvDanhSachTaiKhoan = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -47,7 +48,7 @@
             this.colSTT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTenTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnQuanLyNhanVien = new System.Windows.Forms.ToolStripButton();
+            this.btnHuy = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDanhSachTaiKhoan)).BeginInit();
@@ -113,6 +114,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnThem,
+            this.btnHuy,
             this.btnSua,
             this.btnXoa,
             this.btnQuanLyNhanVien,
@@ -135,6 +137,7 @@
             // 
             // btnSua
             // 
+            this.btnSua.Enabled = false;
             this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
@@ -144,12 +147,22 @@
             // 
             // btnXoa
             // 
+            this.btnXoa.Enabled = false;
             this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(47, 22);
             this.btnXoa.Text = "Xoá";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnQuanLyNhanVien
+            // 
+            this.btnQuanLyNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyNhanVien.Image")));
+            this.btnQuanLyNhanVien.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
+            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(123, 22);
+            this.btnQuanLyNhanVien.Text = "Quản lý nhân viên";
+            this.btnQuanLyNhanVien.Click += new System.EventHandler(this.btnQuanLyNhanVien_Click);
             // 
             // btnThoat
             // 
@@ -169,7 +182,7 @@
             this.dgvDanhSachTaiKhoan.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -189,6 +202,7 @@
             this.dgvDanhSachTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhSachTaiKhoan.Size = new System.Drawing.Size(1214, 430);
             this.dgvDanhSachTaiKhoan.TabIndex = 5;
+            this.dgvDanhSachTaiKhoan.Click += new System.EventHandler(this.dgvDanhSachTaiKhoan_Click);
             // 
             // statusStrip1
             // 
@@ -209,12 +223,14 @@
             // 
             // colSTT
             // 
+            this.colSTT.DataPropertyName = "STT";
             this.colSTT.HeaderText = "STT";
             this.colSTT.Name = "colSTT";
             this.colSTT.ReadOnly = true;
             // 
             // colMaTaiKhoan
             // 
+            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
             this.colMaTaiKhoan.HeaderText = "id";
             this.colMaTaiKhoan.Name = "colMaTaiKhoan";
             this.colMaTaiKhoan.ReadOnly = true;
@@ -223,18 +239,19 @@
             // colTenTaiKhoan
             // 
             this.colTenTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTenTaiKhoan.DataPropertyName = "TenTaiKhoan";
             this.colTenTaiKhoan.HeaderText = "Tên tài khoản";
             this.colTenTaiKhoan.Name = "colTenTaiKhoan";
             this.colTenTaiKhoan.ReadOnly = true;
             // 
-            // btnQuanLyNhanVien
+            // btnHuy
             // 
-            this.btnQuanLyNhanVien.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyNhanVien.Image")));
-            this.btnQuanLyNhanVien.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnQuanLyNhanVien.Name = "btnQuanLyNhanVien";
-            this.btnQuanLyNhanVien.Size = new System.Drawing.Size(123, 22);
-            this.btnQuanLyNhanVien.Text = "Quản lý nhân viên";
-            this.btnQuanLyNhanVien.Click += new System.EventHandler(this.btnQuanLyNhanVien_Click);
+            this.btnHuy.Image = ((System.Drawing.Image)(resources.GetObject("btnHuy.Image")));
+            this.btnHuy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHuy.Name = "btnHuy";
+            this.btnHuy.Size = new System.Drawing.Size(49, 22);
+            this.btnHuy.Text = "Hủy";
+            this.btnHuy.Click += new System.EventHandler(this.btnHuy_Click);
             // 
             // Frm_TaiKhoan_Main
             // 
@@ -276,11 +293,12 @@
         private System.Windows.Forms.ToolStripButton btnXoa;
         private System.Windows.Forms.ToolStripButton btnThoat;
         private System.Windows.Forms.DataGridView dgvDanhSachTaiKhoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaTaiKhoan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenTaiKhoan;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel lblErr;
         private System.Windows.Forms.ToolStripButton btnQuanLyNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSTT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaTaiKhoan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenTaiKhoan;
+        private System.Windows.Forms.ToolStripButton btnHuy;
     }
 }

@@ -27,32 +27,78 @@ namespace Project_20210308.DanhMuc
         {
             bd = new BLL_TaiKhoan(Cls_Main.arrayPath, Cls_Main.fileType);
             HienThiDanhSachTaiKhoan();
+            TaoMaTaiKhoan();
             txtTenTaiKhoan.Focus();
+        }
+
+        private void TaoMaTaiKhoan()
+        {
+            object obj = bd.LayMaxIDTaiKhoan(ref err);
+            if(obj!=null)
+            {
+                txtMaTaiKhoan.Text = string.Format("TK{0:0000000}", Convert.ToInt32(obj));
+            }
         }
 
         private void HienThiDanhSachTaiKhoan()
         {
-            //dtDanhSachTaiKhoan = new DataTable();
-            //dtDanhSachTaiKhoan = null;
-            //dgvDanhSachTaiKhoan.DataSource = dtDanhSachTaiKhoan.DefaultView;
+            dtDanhSachTaiKhoan = new DataTable();
+            dtDanhSachTaiKhoan = bd.LayDanhSachTaiKhoan(ref err, ref rows);
+            dgvDanhSachTaiKhoan.DataSource = dtDanhSachTaiKhoan.DefaultView;
         }
-
+        private void InsertUpdateTaiKhoan()
+        {
+            if (!string.IsNullOrEmpty(txtMaTaiKhoan.Text))
+            {
+                if (!string.IsNullOrEmpty(txtTenTaiKhoan.Text))
+                {
+                    if (bd.InsertVaUpdateTaiKhoan(ref err, ref rows, txtMaTaiKhoan.Text, txtTenTaiKhoan.Text))
+                    {
+                        HienThiDanhSachTaiKhoan();
+                        TaoMaTaiKhoan();
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("Err: {0}", err), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("Err: {0}", "Chưa tạo mã tài khoản"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show(string.Format("Err: {0}", "Chưa tạo mã tài khoản"), "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
-
-            HienThiDanhSachTaiKhoan();
+            InsertUpdateTaiKhoan();
+          
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
 
-            HienThiDanhSachTaiKhoan();
+            InsertUpdateTaiKhoan();
+            btnSua.Enabled = false;
+            btnXoa.Enabled = false;
         }
-
+        string maTaiKhoanXoa = string.Empty;
         private void btnXoa_Click(object sender, EventArgs e)
         {
-
-            HienThiDanhSachTaiKhoan();
+            if (!string.IsNullOrEmpty(maTaiKhoanXoa))
+            {
+                if (bd.DeleteTaiKhoan(ref err, ref rows, maTaiKhoanXoa))
+                {
+                    HienThiDanhSachTaiKhoan();
+                    maTaiKhoanXoa = string.Empty;
+                    btnSua.Enabled = false;
+                    btnXoa.Enabled = false;
+                }
+            }
+          
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
@@ -64,6 +110,25 @@ namespace Project_20210308.DanhMuc
         {
             Frm_NhanVien_Main frmNhanVien = new Frm_NhanVien_Main();
             frmNhanVien.ShowDialog();
+        }
+
+        private void dgvDanhSachTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if(dgvDanhSachTaiKhoan.Rows.Count>0)
+            {
+                txtMaTaiKhoan.Text = dgvDanhSachTaiKhoan.CurrentRow.Cells["colMaTaiKhoan"].Value.ToString();
+                maTaiKhoanXoa = dgvDanhSachTaiKhoan.CurrentRow.Cells["colMaTaiKhoan"].Value.ToString();
+                txtTenTaiKhoan.Text = dgvDanhSachTaiKhoan.CurrentRow.Cells["colTenTaiKhoan"].Value.ToString();
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+            }
+        }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            TaoMaTaiKhoan();
+            txtTenTaiKhoan.ResetText();
+            txtTenTaiKhoan.Focus();
         }
     }
 }

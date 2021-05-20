@@ -46,10 +46,11 @@ namespace Project_20210308
                 lblConnectionString.Text = data.connectionStringBuilder.ToString();
                 
             }
-            this.Text = data.connectionStringBuilder.ToString();
+            this.Text = "CHƯƠNG TRÌNH QUẢN LÝ BÁN HÀNG";
             bd = new BLL_DangNhap(Cls_Main.arrayPath, Cls_Main.fileType);
             lblTenNhanVien.Text = Cls_Main.tenNhanVien;
             lblConnectionString.Text = data.connectionStringBuilder.ToString();
+            Cls_Main.connectionStringBuilder = data.connectionStringBuilder;
             Cls_Main.LayThongTinQuyenTheoUser(ref err, ref rows, Cls_Main.maNhanVien);
             bd.KiemTraPhieuNhap(ref err, ref rows);
         }

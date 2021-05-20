@@ -59,6 +59,7 @@
     <Compile Include="BussinessLayer\BLL_NhanVien.cs" />
     <Compile Include="BussinessLayer\BLL_NhapSanPham.cs" />
     <Compile Include="BussinessLayer\BLL_PhanQuyen.cs" />
+    <Compile Include="BussinessLayer\BLL_SaoLuuPhucHoi.cs" />
     <Compile Include="BussinessLayer\BLL_TaiKhoan.cs" />
     <Compile Include="BussinessLayer\BLL_ThongKe.cs" />
     <Compile Include="Cls_Main.cs" />

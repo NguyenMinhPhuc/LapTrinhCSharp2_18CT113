@@ -92,6 +92,7 @@ namespace Project_20210308
             ConnectionString.Password = txtPassword.Text;
             ConnectionString.IntegratedSecurity = ckbWinNT.Checked;
             readFile.ReadConnectionString.WriteConnectionString(arrayPath[(int)fileType], ConnectionString);
+            Cls_Main.connectionStringBuilder = ConnectionString;
             //Kiểm tra kết nối
             data = new Database(arrayPath, fileType);
             if (data.KiemTraKetNoi(ref err))

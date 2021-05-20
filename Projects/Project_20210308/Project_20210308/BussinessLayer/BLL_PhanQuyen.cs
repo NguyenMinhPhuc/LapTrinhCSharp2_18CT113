@@ -31,5 +31,12 @@ namespace Project_20210308.BussinessLayer
                 new SqlParameter("@MaTaiKhoan", maTaiKhoan),
                 new SqlParameter("@TongQuyen", tongQuyen));
         }
+        public bool CopyQuyenChoUser(ref string err, ref int rows, string maTaiKhoanNguon, string maTaiKhoanDich)
+        {
+            return data.MyExecuteNonQuery(ref err, ref rows, "PSP_PhanQuyen_CopyQuyen", CommandType.StoredProcedure,
+                new SqlParameter("@MaTaiKhoanNguon", maTaiKhoanNguon),
+                new SqlParameter("@MaTaiKhoanDich", maTaiKhoanDich)
+             );
+        }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -22,6 +23,8 @@ namespace Project_20210308
         public static Hashtable BangPhanQuyen = new Hashtable();
 
         public static BLL_DangNhap bd = new BLL_DangNhap(arrayPath, fileType);
+
+        public static SqlConnectionStringBuilder connectionStringBuilder=new SqlConnectionStringBuilder();
         public static void LayThongTinQuyenTheoUser(ref string err, ref int rows, string maNhanVien)
         {
             try

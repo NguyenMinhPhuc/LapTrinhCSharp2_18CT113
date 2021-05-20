@@ -33,6 +33,8 @@ namespace Project_20210308.BussinessLayer
        {
            return data.MyGetDataTable(ref err, ref rows, "PSP_PhanQuyen_LayBangPhanQuyen", CommandType.StoredProcedure, new SqlParameter("@MaNhanVien", maNhanViein));
        }
+
+
        
     }
 }

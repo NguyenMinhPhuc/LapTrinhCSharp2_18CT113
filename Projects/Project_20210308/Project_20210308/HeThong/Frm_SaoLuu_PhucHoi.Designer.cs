@@ -70,6 +70,7 @@
             this.btnChon.TabIndex = 2;
             this.btnChon.Text = "...";
             this.btnChon.UseVisualStyleBackColor = false;
+            this.btnChon.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // button2
             // 
@@ -85,6 +86,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Thực hiện";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ckbPhucHoi
             // 
@@ -133,6 +135,7 @@
             this.Name = "Frm_SaoLuu_PhucHoi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sao lưu phục hồi dữ liệu";
+            this.Load += new System.EventHandler(this.Frm_SaoLuu_PhucHoi_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);

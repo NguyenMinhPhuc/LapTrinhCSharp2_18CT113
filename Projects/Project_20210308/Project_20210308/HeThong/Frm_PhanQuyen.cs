@@ -36,16 +36,18 @@ namespace Project_20210308.HeThong
         {
             DataTable dt = new DataTable();
             dt = bd.LayTaiKhoanChoCbo(ref err, ref rows);
-            if (dt.Rows.Count > 0) { 
-            cboTaiKhoan.DataSource = dt;
-            cboTaiKhoan.ValueMember = "MaTaiKhoan";
-            cboTaiKhoan.DisplayMember = "TenTaiKhoan";
-            cboTaiKhoan.SelectedIndex = 0;
-            statusLoadcbo = true;
+            if (dt.Rows.Count > 0)
+            {
+                cboTaiKhoan.DataSource = dt;
+                cboTaiKhoan.ValueMember = "MaTaiKhoan";
+                cboTaiKhoan.DisplayMember = "TenTaiKhoan";
+                cboTaiKhoan.SelectedIndex = 0;
+                statusLoadcbo = true;
             }
-            else{
+            else
+            {
                 DialogResult result = MessageBox.Show("Chưa có tài khoản\nXin vui lòng tạo loại tài khoản", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if(result==DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     Frm_TaiKhoan_Main frmTaiKhoan = new Frm_TaiKhoan_Main();
                     frmTaiKhoan.ShowDialog();
@@ -60,16 +62,16 @@ namespace Project_20210308.HeThong
 
         private void Frm_PhanQuyen_Load(object sender, EventArgs e)
         {
-           bd = new BLL_PhanQuyen(Cls_Main.arrayPath, Cls_Main.fileType);
-           LoadCboTaiKhoan();
-           HienThiChiTietPhanQuyen(cboTaiKhoan.SelectedValue.ToString());
+            bd = new BLL_PhanQuyen(Cls_Main.arrayPath, Cls_Main.fileType);
+            LoadCboTaiKhoan();
+            HienThiChiTietPhanQuyen(cboTaiKhoan.SelectedValue.ToString());
         }
 
         private void HienThiChiTietPhanQuyen(string maTaiKhoan)
         {
             dtChiTietPhanQuyen = new DataTable();
             dtChiTietPhanQuyen = bd.LayDanhSachPhanQuyen(ref err, ref rows, maTaiKhoan);
-          
+
             CheckQuyeen(dtChiTietPhanQuyen);
             dgvPhanQuyen.DataSource = dtChiTietPhanQuyen.DefaultView;
             CheckLaiCheckBox(false);
@@ -99,7 +101,7 @@ namespace Project_20210308.HeThong
                     }
                 }
             }
-           
+
         }
         private void CheckLaiCheckBox(bool _checked)
         {
@@ -110,17 +112,19 @@ namespace Project_20210308.HeThong
         }
         private void cboTaiKhoan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cboTaiKhoan.SelectedIndex>-1&&statusLoadcbo==true)
+            if (cboTaiKhoan.SelectedIndex > -1 && statusLoadcbo == true)
             {
-                HienThiChiTietPhanQuyen(cboTaiKhoan.SelectedValue.ToString());
+                maTaiKhoan = cboTaiKhoan.SelectedValue.ToString();
+                HienThiChiTietPhanQuyen(maTaiKhoan);
+               
             }
         }
         string maChucNang, maTaiKhoan;
         private void dgvPhanQuyen_Click(object sender, EventArgs e)
         {
-            if(dgvPhanQuyen.Rows.Count>0)
+            if (dgvPhanQuyen.Rows.Count > 0)
             {
-                ckbXem.Checked =Convert.ToBoolean( dgvPhanQuyen.CurrentRow.Cells["colXem"].Value.ToString());
+                ckbXem.Checked = Convert.ToBoolean(dgvPhanQuyen.CurrentRow.Cells["colXem"].Value.ToString());
 
                 ckbThem.Checked = Convert.ToBoolean(dgvPhanQuyen.CurrentRow.Cells["colThem"].Value.ToString());
 
@@ -128,12 +132,12 @@ namespace Project_20210308.HeThong
 
                 ckbXoa.Checked = Convert.ToBoolean(dgvPhanQuyen.CurrentRow.Cells["colXoa"].Value.ToString());
 
-                maChucNang=dgvPhanQuyen.CurrentRow.Cells["colMaChucNang"].Value.ToString();
+                maChucNang = dgvPhanQuyen.CurrentRow.Cells["colMaChucNang"].Value.ToString();
                 maTaiKhoan = dgvPhanQuyen.CurrentRow.Cells["colMaTaiKhoan"].Value.ToString();
 
             }
         }
-    
+
         private void btnThayDoi_Click(object sender, EventArgs e)
         {
             if (Cls_Main.KiemTraQuyen(TongQuyenTrenForm, 2) || Cls_Main.KiemTraQuyen(TongQuyenTrenForm, 4))
@@ -166,11 +170,11 @@ namespace Project_20210308.HeThong
                     MessageBox.Show("Chưa chọn chức năng");
                 }
             }
-        }  
+        }
 
         int tongQuyenThayDoi = 0;
         bool statusThayDoiQuyen = false;
-        private void TinhTongQuyenThayDoi(CheckBox ckb,int value)
+        private void TinhTongQuyenThayDoi(CheckBox ckb, int value)
         {
             statusThayDoiQuyen = true;
             if (ckb.Checked == true)
@@ -186,7 +190,7 @@ namespace Project_20210308.HeThong
 
         private void ckbThem_CheckedChanged(object sender, EventArgs e)
         {
-            TinhTongQuyenThayDoi(ckbThem,(int) Commons.PermissionType.Add);
+            TinhTongQuyenThayDoi(ckbThem, (int)Commons.PermissionType.Add);
         }
 
         private void ckbSua_CheckedChanged(object sender, EventArgs e)
@@ -197,6 +201,39 @@ namespace Project_20210308.HeThong
         private void ckbXoa_CheckedChanged(object sender, EventArgs e)
         {
             TinhTongQuyenThayDoi(ckbXoa, 8);
+        }
+
+        private void btnCopyQuyen_Click(object sender, EventArgs e)
+        {
+            pnlSaoChepQuyen.Visible = true;
+            LoadCboTaiKhoanDich();
+        }
+
+        private void LoadCboTaiKhoanDich()
+        {
+            DataTable dt = new DataTable();
+            dt = bd.LayTaiKhoanChoCbo(ref err, ref rows);
+            if (dt.Rows.Count > 0)
+            {
+                cboTaiKhoanDich.DataSource = dt;
+                cboTaiKhoanDich.ValueMember = "MaTaiKhoan";
+                cboTaiKhoanDich.DisplayMember = "TenTaiKhoan";
+                cboTaiKhoanDich.SelectedIndex = 0;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pnlSaoChepQuyen.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (bd.CopyQuyenChoUser(ref err,ref rows,maTaiKhoan,cboTaiKhoanDich.SelectedValue.ToString()))//Thực hiện sao chép thành công
+            {
+                pnlSaoChepQuyen.Visible = false;
+                HienThiChiTietPhanQuyen(cboTaiKhoan.SelectedValue.ToString());
+            }
         }
     }
 }
