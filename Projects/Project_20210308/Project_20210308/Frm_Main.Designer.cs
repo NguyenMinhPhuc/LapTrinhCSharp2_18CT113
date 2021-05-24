@@ -108,8 +108,8 @@
             this.quảnLýNhânViênToolStripMenuItem,
             this.mnuThoat});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
-            this.fileToolStripMenuItem.Text = "Hệ thống";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.fileToolStripMenuItem.Text = "&Hệ thống";
             // 
             // mnuDangXuat
             // 
@@ -182,8 +182,8 @@
             this.mnuNhaCungCap,
             this.mnuLoaiSanPham});
             this.listToolStripMenuItem.Name = "listToolStripMenuItem";
-            this.listToolStripMenuItem.Size = new System.Drawing.Size(93, 25);
-            this.listToolStripMenuItem.Text = "Danh mục";
+            this.listToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
+            this.listToolStripMenuItem.Text = "&Danh mục";
             // 
             // mnuNhanVien
             // 
@@ -212,8 +212,8 @@
             this.mnuNhapSanPham,
             this.mnuBanHang});
             this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
-            this.functionToolStripMenuItem.Size = new System.Drawing.Size(64, 25);
-            this.functionToolStripMenuItem.Text = "Tác vụ";
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(76, 29);
+            this.functionToolStripMenuItem.Text = "&Tác vụ";
             // 
             // mnuNhapSanPham
             // 
@@ -235,8 +235,8 @@
             this.mnuKiemTon,
             this.mnuThongKeDoanhThu});
             this.thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(86, 25);
-            this.thốngKêToolStripMenuItem.Text = "Thống kê";
+            this.thốngKêToolStripMenuItem.Size = new System.Drawing.Size(102, 29);
+            this.thốngKêToolStripMenuItem.Text = "Thống &kê";
             // 
             // mnuKiemTon
             // 
@@ -258,8 +258,8 @@
             this.mnuHuongDanSuDung,
             this.mnuThongTin});
             this.trợGiúpToolStripMenuItem.Name = "trợGiúpToolStripMenuItem";
-            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
-            this.trợGiúpToolStripMenuItem.Text = "Trợ giúp";
+            this.trợGiúpToolStripMenuItem.Size = new System.Drawing.Size(93, 29);
+            this.trợGiúpToolStripMenuItem.Text = "Trợ &giúp";
             // 
             // mnuHuongDanSuDung
             // 
