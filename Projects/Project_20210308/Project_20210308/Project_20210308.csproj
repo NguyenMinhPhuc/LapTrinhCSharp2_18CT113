@@ -176,6 +176,12 @@
     <Compile Include="TacVu\Frm_BanHang_Main.Designer.cs">
       <DependentUpon>Frm_BanHang_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="TacVu\Frm_InHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TacVu\Frm_InHoaDon.Designer.cs">
+      <DependentUpon>Frm_InHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="TacVu\Frm_InPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +276,9 @@
     <EmbeddedResource Include="TacVu\Frm_BanHang_Main.resx">
       <DependentUpon>Frm_BanHang_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\Frm_InHoaDon.resx">
+      <DependentUpon>Frm_InHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TacVu\Frm_InPhieuNhap.resx">
       <DependentUpon>Frm_InPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +294,7 @@
     <EmbeddedResource Include="TacVu\Frm_QuanLyGiaBan.resx">
       <DependentUpon>Frm_QuanLyGiaBan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TacVu\rp_InHoaDon.rdlc" />
     <EmbeddedResource Include="TacVu\Rp_InPhieuNhap.rdlc" />
     <EmbeddedResource Include="ThongKe\Frm_KiemHangTon_Main.resx">
       <DependentUpon>Frm_KiemHangTon_Main.cs</DependentUpon>

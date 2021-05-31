@@ -50,5 +50,10 @@ namespace Project_20210308.BussinessLayer
             return data.MyExecuteScalar(ref err, "PSP_HoaDon_MaxID", CommandType.StoredProcedure, new SqlParameter("@NgayLap", ngayLap))
 ;
         }
+
+        public DataTable InHoaDon(ref string err, ref int rows, string maHD)
+        {
+            return data.MyGetDataTable(ref err, ref rows, "PSP_HoaDon_INHoaDon", CommandType.StoredProcedure, new SqlParameter("@MaHD", maHD));
+        }
     }
 }

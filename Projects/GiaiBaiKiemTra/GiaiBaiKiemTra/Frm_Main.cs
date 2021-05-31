@@ -28,7 +28,8 @@ namespace GiaiBaiKiemTra
         private void mnuQuanLySanPham_Click(object sender, EventArgs e)
         {
             Frm_QuanLySanPham frmQuanLySanPham = new Frm_QuanLySanPham();
-            frmQuanLySanPham.ShowDialog();
+            frmQuanLySanPham.MdiParent = this;
+            frmQuanLySanPham.Show();
         }
         Database data;
         string err = string.Empty;

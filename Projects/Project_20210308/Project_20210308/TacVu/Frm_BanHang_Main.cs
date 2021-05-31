@@ -132,9 +132,20 @@ namespace Project_20210308.TacVu
         private void btnInHoaDon_Click(object sender, EventArgs e)
         {
             //in xong hoa don thi thoat
-
+            Frm_InHoaDon frmInHoaDon = new Frm_InHoaDon(maHD);
+            frmInHoaDon.ShowDialog();
+            //Chot hoa don da in
+            TaoMaHoaDon(dtpNgayLap.Value);
             //ẩn
             pnlThanhToan.Visible = false;
+        }
+
+        private void btnInThu_Click(object sender, EventArgs e)
+        {
+            //in xong hoa don thi thoat
+            Frm_InHoaDon frmInHoaDon = new Frm_InHoaDon(maHD);
+            frmInHoaDon.ShowDialog();
+            TaoMaHoaDon(dtpNgayLap.Value);
         }
     }
 }

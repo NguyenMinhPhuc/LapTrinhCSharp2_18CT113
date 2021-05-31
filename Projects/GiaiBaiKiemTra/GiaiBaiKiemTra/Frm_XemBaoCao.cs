@@ -42,6 +42,7 @@ namespace GiaiBaiKiemTra
         void LoadConbo()
         {
             //Sau khi load com bo xong
+
             trangThaiLoad = true;
 
         }
@@ -49,7 +50,7 @@ namespace GiaiBaiKiemTra
         {
             bd = new BLL_QuanLySanPham();
             LoadConbo();
-            HienThiReport(cboLoaiSanPham.SelectedValue.ToString());
+            HienThiReport("cboLoaiSanPham.SelectedValue.ToString()");
             
         }
         bool trangThaiLoad = false;
